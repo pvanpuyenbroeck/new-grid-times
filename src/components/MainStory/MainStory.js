@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import {QUERIES } from '../../constants';
 
 const MainStory = ({
   id,
@@ -15,7 +16,7 @@ const MainStory = ({
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
       </a>
-      <Abstract>
+      <Abstract tabletsize={QUERIES.tabletOnly}>
         <Location>{location}</Location> — {abstract}
       </Abstract>
       <ReadMore href="/story">Continue Reading…</ReadMore>
@@ -24,7 +25,8 @@ const MainStory = ({
 };
 
 const Wrapper = styled.article`
-  color: var(--color-gray-900);
+    color: var(--color-gray-900);
+
 `;
 
 const Image = styled.img`
@@ -41,9 +43,17 @@ const Heading = styled.h2`
 `;
 
 const Abstract = styled.p`
-  font-size: 1rem;
-  margin-bottom: 1em;
-  white-space: pre-wrap;
+    font-size: 1rem;
+    margin-bottom: 1em;
+    white-space: pre-wrap;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+
+    @media ${QUERIES.tabletAndUp} {
+        -webkit-line-clamp:80;
+    }
 `;
 
 const Location = styled.span`

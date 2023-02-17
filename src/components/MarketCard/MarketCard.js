@@ -53,6 +53,7 @@ const Wrapper = styled.a`
   background: var(--color-white);
   box-shadow: 2px 4px 12px hsl(0deg 0% 0% / 0.1);
   border-radius: 4px;
+  flex-grow:1 ;
 `;
 
 const Row = styled.div`
